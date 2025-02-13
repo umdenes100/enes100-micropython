@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="enes100",  # Package name
-    version="1.0.0", 
+    version="1.0.1", 
     license= 'MIT', 
     description="A MicroPython library for ESP32-based ENES100 communication using WebSockets.",
     author="Keystone Center", 
