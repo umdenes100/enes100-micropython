@@ -48,7 +48,8 @@ Returns true if the ESP8266 is connected to the Vision System, false otherwise. 
 `enes100.print(message: str)`
 Sends a message to the vision system with a new line. Any messages sent after will be printed in a new line below the ' println'
 
-### enes100.mission(type: int, message: int)
+### enes100.mission()
+`enes100.mission(type: string, message: str)
 Sends value for a mission objective.
 - type: what type of mission call you are sending
 - message: mission value associated with the mission type.
