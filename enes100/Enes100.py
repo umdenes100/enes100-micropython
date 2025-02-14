@@ -4,64 +4,68 @@ import machine
 import _thread
 import uasyncio as asyncio
 import sys
-sys.path.append('/lib')
+sys.path.append('/lib/enes100')
 import uwebsockets as web
 import ujson as json
   
-# Mission Types
-CRASH_SITE = 0
-DATA = 1
-MATERIAL = 2
-FIRE = 3
-WATER = 4
-SEED = 5
-
-# Crash Mission
-DIRECTION = 0
-LENGTH = 1
-HEIGHT = 2
-NORMAL_X = 0
-NORMAL_Y = 1
-
-# Data Mission
-CYCLE = 0
-MAGNETISM = 1
-MAGNETIC = 0
-NOT_MAGNETIC = 1
-
-# Materials Mission
-WEIGHT = 0
-MATERIAL_TYPE = 1
-FOAM = 0
-PLASTIC = 1
-HEAVY = 0
-MEDIUM = 1
-LIGHT = 2
-
-# Fire Mission
-NUM_CANDLES = 0
-TOPOGRAPHY = 1
-TOP_A = 0
-TOP_B = 1
-TOP_C = 2
-
-# Water Mission
-DEPTH = 0
-WATER_TYPE = 1
-FRESH_UNPOLLUTED = 0
-FRESH_POLLUTED = 1
-SALT_UNPOLLUTED = 2
-SALT_POLLUTED = 3
-
-# Seed Mission
-LOCATION = 0
-PERCENTAGE = 1
-
 # WebSocket Server
 WS_URL = "ws://192.168.1.2:7755"
 
+#  make a dict 
+mission_stuff = {
+    # Mission Types
+    'CRASH_SITE' : 0,
+    'DATA' : 1,
+    'MATERIAL' : 2,
+    'FIRE' : 3,
+    'WATER' : 4,
+    'SEED' : 5,
 
-class enes100:
+    # Crash Mission
+    'DIRECTION' : 0,
+    'LENGTH' : 1,
+    'HEIGHT': 2,
+    'NORMAL_X' : 0,
+    'NORMAL_Y' : 1,
+
+    # Data Mission
+    'CYCLE' : 0,
+    'MAGNETISM' : 1,
+    'MAGNETIC' : 0,
+    'NOT_MAGNETIC' : 1,
+
+    # Materials Mission
+    'WEIGHT' : 0,
+    'MATERIAL_TYPE' : 1,
+    'FOAM' : 0,
+    'PLASTIC' : 1,
+    'HEAVY' : 0,
+    'MEDIUM' : 1,
+    'LIGHT' : 2,
+
+    # Fire Mission
+    'NUM_CANDLES' : 0,
+    'TOPOGRAPHY' : 1,
+    'TOP_A' : 0,
+    'TOP_B' : 1,
+    'TOP_C' : 2,
+
+    # Water Mission
+    'DEPTH' : 0,
+    'WATER_TYPE' : 1,
+    'FRESH_UNPOLLUTED' : 0,
+    'FRESH_POLLUTED' : 1,
+    'SALT_UNPOLLUTED' : 2,
+    'SALT_POLLUTED' : 3,
+
+    # Seed Mission
+    'LOCATION' : 0,
+    'PERCENTAGE' : 1,
+}
+    
+
+
+class Enes100:
     # initializes variables needed for the Enes100 instance
     def __init__(self):
         self.team_name = ''
@@ -131,6 +135,10 @@ class enes100:
         
     # handles the creation and delivery of the mission packet
     def mission(self, mission_call, message):
+        mission_call = mission_stuff[mission_call.upper()]
+        if (type(message) == str):
+            message = mission_stuff[message.upper()]
+            
         packet = {
             "op": "mission",
             "teamName": self.team_name,
@@ -154,4 +162,4 @@ class enes100:
         return self.ws.open
     
 # create instance... what's used by the students. Is the self parameter
-Enes100 = enes100()
+enes100 = Enes100()
