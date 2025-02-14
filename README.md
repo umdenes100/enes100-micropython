@@ -7,10 +7,8 @@ Flashing MicroPython Firmware using Thonny IDE
 In this section, you’ll learn how to flash MicroPython firmware on your boards using Thonny IDE. Follow the next steps:
 1) Connect your ESP32 board to your computer.
 2) Open Thonny IDE. Go to Tools > Options > Interpreter.
-3) Select the interpreter you want to use accordingly to the board you’re using and select the COM port your board is connected to. Finally, click on the link Install or update firmware(esptool).
-	
+3) Select the interpreter you want to use accordingly to the board you’re using and select the COM port your board is connected to. Finally, click on the link Install or update firmware(esptool).	
 4) Next, select ESP32 as the Micropython family, Espressif - ESP32 / WROOM as the variant, and 1.24.1 as the version. Then, click install.
-
 5) To make sure that the installation was successful, type help() into the shell. You should receive a message like this.
 
 
@@ -38,14 +36,17 @@ These values can be queried by using the following commands:
 - `enes100.y`
 - `enes100.theta`
 - `enes100.isVisible()`
+
 enes100.get variants will make sure you get the latest data available to you about your OTV's location. There is no need to save these as a separate variable.
 
 ### enes100.is_connected()
 `enes100.is_connected()`
+
 Returns true if the ESP8266 is connected to the Vision System, false otherwise. Note: enes100.begin will not return until this function is true.
 
 ### enes100.print()
 `enes100.print(message: str)`
+
 Sends a message to the vision system with a new line. Any messages sent after will be printed in a new line below the ' println'
 
 ### enes100.mission()
