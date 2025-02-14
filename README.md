@@ -14,7 +14,7 @@ In this section, you’ll learn how to flash MicroPython firmware on your boards
 
 ## Usage
 To use the library, you have to direct the compiler to include it in your code. Add it manually by typing **from enes100 import \*** at the very top of your file.
-### enes100.begin
+### enes100.begin()
 `enes100.begin(team_name: str, team_type: str, aruco_id: int, room_num: int)`
 
 Initializes the ENES100 library and establishes communication with the Vision System.
@@ -50,7 +50,8 @@ Returns true if the ESP8266 is connected to the Vision System, false otherwise. 
 Sends a message to the vision system with a new line. Any messages sent after will be printed in a new line below the ' println'
 
 ### enes100.mission()
-`enes100.mission(type: str, message: str)
+`enes100.mission(type: str, message: str)`
+
 Sends value for a mission objective.
 - type: what type of mission call you are sending
 - message: mission value associated with the mission type.
