@@ -5,7 +5,7 @@ An PyPl library for use in the ENES100 course to allow ESP32 microcontrollers to
 You must download Thonny IDE to your computer. The latest version can be downloaded from the Thonny website.
 Flashing MicroPython Firmware using Thonny IDE
 In this section, you’ll learn how to flash MicroPython firmware on your boards using Thonny IDE. Follow the next steps:
-1) Connect your ESP32 or ESP8266 board to your computer.
+1) Connect your ESP32 board to your computer.
 2) Open Thonny IDE. Go to Tools > Options > Interpreter.
 3) Select the interpreter you want to use accordingly to the board you’re using and select the COM port your board is connected to. Finally, click on the link Install or update firmware(esptool).
 	
