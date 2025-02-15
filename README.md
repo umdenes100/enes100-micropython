@@ -1,9 +1,10 @@
-# **ENES100 Micropython Library**
-An PyPl library for use in the ENES100 course to allow ESP32 microcontrollers to communicate with the ENES100 Vision System via on-board WiFi.
+# **ENES100 Micropython Package**
+A Micropython package for use in the ENES100 course to allow ESP32 microcontrollers to communicate with the ENES100 Vision System via on-board WiFi.
 
-## Download and Installation 
+## Thonny IDE and Microcontroller Setup
 You must download Thonny IDE to your computer. The latest version can be downloaded from the Thonny website.
-Flashing MicroPython Firmware using Thonny IDE
+
+**Flashing MicroPython Firmware using Thonny IDE**
 In this section, you’ll learn how to flash MicroPython firmware on your boards using Thonny IDE. Follow the next steps:
 1) Connect your ESP32 board to your computer.
 2) Open Thonny IDE. Go to **Tools > Options > Interpreter**.
@@ -11,16 +12,27 @@ In this section, you’ll learn how to flash MicroPython firmware on your boards
 4) Next, select **ESP32** as the Micropython family, **Espressif - ESP32 / WROOM** as the variant, and **1.24.1** as the version. Then, click install.
 5) To make sure that the installation was successful, type help() into the shell. You should receive a message.
 
+## Library Download and Installation 
+In this section, you will download the package and upload it to your microcontroller through Thonny IDE. 
+1) To download the package, click the green  **<> Code** drop down at the top of the page. Then click **Download ZIP**.
+2) Open Thonny and navigate to **Tools > Manage packages...**
+3) Using **Install from local file**, find the file on your computer and upload it to your device.
+4) Next, type **logging** into the search bar, and install "logging @ micropython-lib".
+
+You can now use the Enes100 package.
 
 ## Usage
-To use the library, you have to direct the compiler to include it in your code. Add it manually by typing **from enes100 import \*** at the very top of your file.
+`from enes100 import enes100`
+
+To use the library, you have to direct the compiler to include it in your code. Add it manually by typing the above at the very top of your file.
+
 ### enes100.begin()
 `enes100.begin(team_name: str, team_type: str, aruco_id: int, room_num: int)`
 
 Initializes the ENES100 library and establishes communication with the Vision System.
 - team_name: Name of the team that will show up in the Vision System
 - team_type: Type of mission your team is running.
-	- Valid Mission Types: `CRASH_SITE`, `DATA`, `MATERIAL`, `FIRE`, `WATER`, `SEED`
+	- Valid Mission Types: `'CRASH_SITE'`, `'DATA'`, `'MATERIAL'`, `'FIRE'`, `'WATER'`, `'SEED'`
 - aruco_id: ID of your Aruco Marker
 - room_num: The number of the classroom in which you are located (1116 or 1120)
 
