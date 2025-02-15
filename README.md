@@ -6,10 +6,10 @@ You must download Thonny IDE to your computer. The latest version can be downloa
 Flashing MicroPython Firmware using Thonny IDE
 In this section, you’ll learn how to flash MicroPython firmware on your boards using Thonny IDE. Follow the next steps:
 1) Connect your ESP32 board to your computer.
-2) Open Thonny IDE. Go to Tools > Options > Interpreter.
-3) Select the interpreter you want to use accordingly to the board you’re using and select the COM port your board is connected to. Finally, click on the link Install or update firmware(esptool).	
-4) Next, select ESP32 as the Micropython family, Espressif - ESP32 / WROOM as the variant, and 1.24.1 as the version. Then, click install.
-5) To make sure that the installation was successful, type help() into the shell. You should receive a message like this.
+2) Open Thonny IDE. Go to **Tools > Options > Interpreter**.
+3) Select the interpreter you want to use accordingly to the board you’re using and select the COM port your board is connected to. Finally, click on the link **Install or update firmware(esptool)**.	
+4) Next, select **ESP32** as the Micropython family, **Espressif - ESP32 / WROOM** as the variant, and **1.24.1** as the version. Then, click install.
+5) To make sure that the installation was successful, type help() into the shell. You should receive a message.
 
 
 ## Usage
@@ -50,44 +50,44 @@ Returns true if the ESP8266 is connected to the Vision System, false otherwise. 
 Sends a message to the vision system with a new line. Any messages sent after will be printed in a new line below the ' println'
 
 ### enes100.mission()
-`enes100.mission(type: str, message: str)`
+`enes100.mission(type: str, message: str*)`
 
 Sends value for a mission objective.
 - type: what type of mission call you are sending
 - message: mission value associated with the mission type.
 
-All the definitions defined in the Enes100 library correlate to an integer. To save you the trouble, you can call the uppercase definition like LENGTH for Crash Site teams or MATERIAL_TYPE for Material Identification teams.
+All the definitions defined in the Enes100 library correlate to an integer. To save you the trouble, you can call the uppercase definition like 'LENGTH' for Crash Site teams or 'MATERIAL_TYPE' for Material Identification teams.
 
-For the valid mission calls below, the value i will denote an integer value.
+*For some mission calls below, the value i will denote an integer value. In that case, i should be an int NOT a str.
 
 Valid calls for **CRASH_SITE**:
-- `enes100.mission(LENGTH, i)` i is in millimeters
-- `enes100.mission(HEIGHT, i)` i is in millimeters
-- `enes100.mission(DIRECTION, NORMAL_X)` the normal of the exposed panels points in the positive and negative x direction
-- `enes100.mission(DIRECTION, NORMAL_Y)` the normal of the exposed panels points in the positive and negative y direction
+- `enes100.mission('LENGTH', i)` i is in millimeters
+- `enes100.mission('HEIGHT', i)` i is in millimeters
+- `enes100.mission('DIRECTION', 'NORMAL_X')` the normal of the exposed panels points in the positive and negative x direction
+- `enes100.mission('DIRECTION', 'NORMAL_Y')` the normal of the exposed panels points in the positive and negative y direction
 
 Valid calls for **DATA**:
-- `enes100.mission(CYCLE, i)` i is the duty cycle percent (ex. 10, 30, 50, 70, 90)
-- `enes100.mission(MAGNETISM, MAGNETIC)`
-- `enes100.mission(MAGNETISM, NOT_MAGNETIC)`
+- `enes100.mission('CYCLE', i)` i is the duty cycle percent (ex. 10, 30, 50, 70, 90)
+- `enes100.mission('MAGNETISM', 'MAGNETIC')`
+- `enes100.mission('MAGNETISM', 'NOT_MAGNETIC')`
 
 Valid calls for **MATERIAL**:
-- `enes100.mission(WEIGHT, HEAVY)`
-- `enes100.mission(WEIGHT, MEDIUM)`
-- `enes100.mission(WEIGHT, LIGHT)`
-- `enes100.mission(MATERIAL_TYPE, FOAM)`
-- `enes100.mission(MATERIAL_TYPE, PLASTIC)`
+- `enes100.mission('WEIGHT', 'HEAVY')`
+- `enes100.mission('WEIGHT', 'MEDIUM')`
+- `enes100.mission('WEIGHT', 'LIGHT')`
+- `enes100.mission('MATERIAL_TYPE', 'FOAM')`
+- `enes100.mission('MATERIAL_TYPE', 'PLASTIC')`
 
 Valid calls for **FIRE**:
-- `enes100.mission(NUM_CANDLES, i)` i is an integer (0, 1, 2, 3, 4, 5)
-- `enes100.mission(TOPOGRAPHY, TOP_A)`
-- `enes100.mission(TOPOGRAPHY, TOP_B)`
-- `enes100.mission(TOPOGRAPHY, TOP_C)`
+- `enes100.mission('NUM_CANDLES', i)` i is an integer (0, 1, 2, 3, 4, 5)
+- `enes100.mission('TOPOGRAPHY', 'TOP_A')`
+- `enes100.mission('TOPOGRAPHY', 'TOP_B')`
+- `enes100.mission('TOPOGRAPHY', 'TOP_C')`
 
 Valid calls for **WATER**:
-- `enes100.mission(DEPTH, i)` i is in mm
-- `enes100.mission(WATER_TYPE, FRESH_UNPOLLUTED)`
-- `enes100.mission(WATER_TYPE, FRESH_POLLUTED)`
+- `enes100.mission('DEPTH', i)` i is in mm
+- `enes100.mission('WATER_TYPE', 'FRESH_UNPOLLUTED')`
+- `enes100.mission('WATER_TYPE', 'FRESH_POLLUTED')`
 
 #### Valid calls for SEED:
 - `enes100.mission(PERCENTAGE, i)` i is a percentage
