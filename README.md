@@ -12,7 +12,7 @@ In this section, you’ll learn how to flash MicroPython firmware on your boards
 4) Next, select **ESP32** as the Micropython family, **Espressif - ESP32 / WROOM** as the variant, and **1.24.1** as the version. Then, click install.
 5) To make sure that the installation was successful, type help() into the shell. You should receive a message.
 
-## Library Download and Installation 
+## Package Download and Installation 
 In this section, you will download the package and upload it to your microcontroller through Thonny IDE. 
 1) To download the package, click the green  **<> Code** drop down at the top of the page. Then click **Download ZIP**.
 2) Open Thonny and navigate to **Tools > Manage packages...**
@@ -24,12 +24,12 @@ You can now use the Enes100 package.
 ## Usage
 `from enes100 import enes100`
 
-To use the library, you have to direct the compiler to include it in your code. Add it manually by typing the above at the very top of your file.
+To use the package, you have to direct the compiler to include it in your code. Add it manually by typing the above at the very top of your file.
 
 ### enes100.begin()
 `enes100.begin(team_name: str, team_type: str, aruco_id: int, room_num: int)`
 
-Initializes the ENES100 library and establishes communication with the Vision System.
+Establishes communication with the Vision System and allows for the use of all other enes100 commands
 - team_name: Name of the team that will show up in the Vision System
 - team_type: Type of mission your team is running.
 	- Valid Mission Types: `'CRASH_SITE'`, `'DATA'`, `'MATERIAL'`, `'FIRE'`, `'WATER'`, `'SEED'`
@@ -47,7 +47,7 @@ These values can be queried by using the following commands:
 - `enes100.x`
 - `enes100.y`
 - `enes100.theta`
-- `enes100.isVisible()`
+- `enes100.is_visible`
 
 enes100.get variants will make sure you get the latest data available to you about your OTV's location. There is no need to save these as a separate variable.
 
@@ -68,7 +68,7 @@ Sends value for a mission objective.
 - type: what type of mission call you are sending
 - message: mission value associated with the mission type.
 
-All the definitions defined in the Enes100 library correlate to an integer. To save you the trouble, you can call the uppercase definition like 'LENGTH' for Crash Site teams or 'MATERIAL_TYPE' for Material Identification teams.
+All the definitions defined in the Enes100 package correlate to an integer. To save you the trouble, you can call the uppercase definition like 'LENGTH' for Crash Site teams or 'MATERIAL_TYPE' for Material Identification teams.
 
 *For some mission calls below, the value i will denote an integer value. In that case, i should be an int NOT a str.
 
