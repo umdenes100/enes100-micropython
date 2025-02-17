@@ -102,7 +102,7 @@ class Enes100:
     # begin statement used to gather basic info from teams, connect to wifi, init websocket and get it running
     def begin(self, team_name, mission_type, aruco_id, room_num):
         self.team_name = team_name
-        self.mission_type = mission_type
+        self.mission_type = mission_stuff[mission_type.upper()]
         self.aruco_id = aruco_id
         self.room_num = room_num
         
