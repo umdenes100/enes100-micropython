@@ -1,8 +1,8 @@
 # necessary for access to VS and other lib functions
-from Enes100 import enes100
+from enes100 import enes100
 
 # Team Name, Mission Type, Aruco ID, Room Num
-enes100.begin("We are Farmers", SEED, 210, 1116)
+enes100.begin('We are Farmers', 'SEED', 210, 1116)
 
 # There is no get function in the micropython library... the location vars are automatically updated.
 # enes100.x -> your x coordinate. 0-4, in meters, -1 if aruco is not visible
@@ -15,5 +15,5 @@ if enes100.is_visible:
 else:
     enes100.print("Not visible.")
 
-enes100.mission(PERCENTAGE, 50) # transmit the percentage of the mission is plantable substrate
-enes100.mission(LOCATION, Coordinate(2000, 1900)) # transmit the coordinates of the plantable substrate... run for ea. plot
+enes100.mission('PERCENTAGE', 50) # transmit the percentage of the mission is plantable substrate
+enes100.mission('LOCATION', Coordinate(2000, 1900)) # transmit the coordinates of the plantable substrate... run for ea. plot

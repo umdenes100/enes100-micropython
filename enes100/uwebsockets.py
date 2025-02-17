@@ -2,14 +2,14 @@
 Websockets protocol
 """
 
-import logging
+# import logging
 import ure as re
 import ustruct as struct
 import urandom as random
 import usocket as socket
 from ucollections import namedtuple
 
-LOGGER = logging.getLogger(__name__)
+# LOGGER = logging.getLogger(__name__)
 
 # Opcodes
 OP_CONT = const(0x0)
@@ -116,8 +116,7 @@ class Websocket:
             data = self.sock.read(length)
         except MemoryError:
             # We can't receive this many bytes, close the socket
-            if __debug__: LOGGER.debug("Frame of length %s too big. Closing",
-                                       length)
+            # if __debug__: LOGGER.debug("Frame of length %s too big. Closing" length)
             self.close(code=CLOSE_TOO_BIG)
             return True, OP_CLOSE, None
 
@@ -186,7 +185,7 @@ class Websocket:
             except NoDataException:
                 return ''
             except ValueError:
-                LOGGER.debug("Failed to read frame. Socket dead.")
+                # LOGGER.debug("Failed to read frame. Socket dead.")
                 self._close()
                 raise ConnectionClosed()
 
@@ -205,7 +204,7 @@ class Websocket:
                 continue
             elif opcode == OP_PING:
                 # We need to send a pong frame
-                if __debug__: LOGGER.debug("Sending PONG")
+                # if __debug__: LOGGER.debug("Sending PONG")
                 self.write_frame(OP_PONG, data)
                 # And then wait to receive
                 continue
@@ -241,7 +240,7 @@ class Websocket:
         self._close()
 
     def _close(self):
-        if __debug__: LOGGER.debug("Connection closed")
+        # if __debug__: LOGGER.debug("Connection closed")
         self.open = False
         self.sock.close()
 
@@ -252,13 +251,13 @@ Based very heavily off
 https://github.com/aaugustin/websockets/blob/master/websockets/client.py
 """
 
-import logging
+# import logging
 import usocket as socket
 import ubinascii as binascii
 import urandom as random
 import ssl
 
-LOGGER = logging.getLogger(__name__)
+# LOGGER = logging.getLogger(__name__)
 
 
 class WebsocketClient(Websocket):
@@ -272,8 +271,7 @@ def connect(uri):
     uri = urlparse(uri)
     assert uri
 
-    if __debug__: LOGGER.debug("open connection %s:%s",
-                                uri.hostname, uri.port)
+    # if __debug__: LOGGER.debug("open connection %s:%s", uri.hostname, uri.port)
 
     sock = socket.socket()
     addr = socket.getaddrinfo(uri.hostname, uri.port)
@@ -282,7 +280,7 @@ def connect(uri):
         sock = ssl.wrap_socket(sock, server_hostname=uri.hostname)
 
     def send_header(header, *args):
-        if __debug__: LOGGER.debug(str(header), *args)
+        # if __debug__: LOGGER.debug(str(header), *args)
         sock.write(header % args + '\r\n')
 
     # Sec-WebSocket-Key is 16 bytes of random base64 encoded
@@ -307,7 +305,7 @@ def connect(uri):
     # We don't (currently) need these headers
     # FIXME: should we check the return key?
     while header:
-        if __debug__: LOGGER.debug(str(header))
+        # if __debug__: LOGGER.debug(str(header))
         header = sock.readline()[:-2]
 
     return WebsocketClient(sock)
