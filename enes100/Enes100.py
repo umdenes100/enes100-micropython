@@ -108,12 +108,13 @@ class Enes100:
         
         # Connect to WiFi
         ssid = f'VisionSystem{self.room_num}-2.4'
+        key = '@R6u!n01'
         print(f'Connecting to {ssid}...')
         
         sta_if = network.WLAN(network.WLAN.IF_STA)
         if not sta_if.isconnected():
             sta_if.active(True)
-            sta_if.connect(ssid)
+            sta_if.connect(ssid, key)
             while not sta_if.isconnected():
                 time.sleep(0.01)
         print('Connected to WiFi')
