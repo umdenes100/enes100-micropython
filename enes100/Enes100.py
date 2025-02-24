@@ -117,11 +117,11 @@ class Enes100:
             sta_if.connect(ssid, key)
             while not sta_if.isconnected():
                 time.sleep(0.01)
-        print('Connected to WiFi')
+        #print('Connected to WiFi')
         
         # Connect to VS
         self.ws = web.connect(WS_URL)
-        print("Connected to WebSocket Server")
+        #print("Connected to WebSocket Server")
         
         # Send begin statement to VS
         packet = {
