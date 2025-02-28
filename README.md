@@ -101,7 +101,7 @@ Valid calls for **WATER**:
 - `enes100.mission('WATER_TYPE', 'FRESH_POLLUTED')`
 
 #### Valid calls for SEED:
-- `enes100.mission(LOCATION, plot)` where plot is a single character A, B, C, D
+- `enes100.mission('LOCATION', plot)` where plot is a single character A, B, C, D
 
 ## Product Demonstration Procedures
 During the product demonstration, messages sent using print() will not be shown on the Vision System console. You should use the mission calls to send results.
