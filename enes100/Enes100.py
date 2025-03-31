@@ -101,8 +101,6 @@ class Enes100:
                     self.x = aruco.get("x", -1.0)
                     self.y = aruco.get("y", -1.0)
                     self.theta = aruco.get("theta", -1.0)
-            if self.ws.closed:
-                kdwmjfd
     
     # begin statement used to gather basic info from teams, connect to wifi, init websocket and get it running
     def begin(self, team_name, mission_type, aruco_id, room_num):
