@@ -7,9 +7,8 @@ import sys
 sys.path.append('/lib/enes100')
 import uwebsockets as web
 import ujson as json
-  
-# WebSocket Server
-WS_URL = "ws://192.168.1.2:7755"
+
+WS_URL = "ws://19.168.1.2:7755"
 
 #  make a dict 
 mission_stuff = {
@@ -20,6 +19,7 @@ mission_stuff = {
     'FIRE' : 3,
     'WATER' : 4,
     'SEED' : 5,
+    'HYDROGEN' : 6,
 
     # Crash Mission
     'DIRECTION' : 0,
@@ -64,6 +64,20 @@ mission_stuff = {
     'B' : 'B',
     'C' : 'C',
     'D' : 'D',
+    
+    # Hydrogen Mission
+    'VOLTAGE_OUTPUT' : 0,
+    'LED_COLOR' : 1,
+    'VOLTAGE_1' : 0,
+    'VOLTAGE_2' : 1,
+    'VOLTAGE_3' : 2,
+    'VOLTAGE_4' : 3,
+    'VOLTAGE_5' : 4,
+    'WHITE' : 0,
+    'RED' : 1,
+    'YELLOW' : 2,
+    'GREEN' : 3,
+    'BLUE' : 4,
 }
     
 
@@ -121,9 +135,12 @@ class Enes100:
             while not sta_if.isconnected():
                 time.sleep(0.01)
         #print('Connected to WiFi')
+
+        # Connect to WiFi
+        wifi.connect()
         
         # Connect to VS
-        self.ws = web.connect(WS_URL)
+        self.ws = web.connect(WS_URL[str(room_num)])
         #print("Connected to WebSocket Server")
         
         # Send begin statement to VS
