@@ -140,7 +140,7 @@ class Enes100:
         wifi.connect()
         
         # Connect to VS
-        self.ws = web.connect(WS_URL[str(room_num)])
+        self.ws = web.connect(WS_URL)
         #print("Connected to WebSocket Server")
         
         # Send begin statement to VS
