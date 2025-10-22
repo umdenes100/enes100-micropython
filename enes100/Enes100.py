@@ -8,6 +8,7 @@ sys.path.append('/lib/enes100')
 import uwebsockets as web
 import ujson as json
 
+# Websocket URL
 WS_URL = "ws://192.168.1.2:7755"
 
 #  make a dict 
@@ -135,9 +136,6 @@ class Enes100:
             while not sta_if.isconnected():
                 time.sleep(0.01)
         #print('Connected to WiFi')
-
-        # Connect to WiFi
-        wifi.connect()
         
         # Connect to VS
         self.ws = web.connect(WS_URL)
