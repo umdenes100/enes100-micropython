@@ -8,7 +8,7 @@ sys.path.append('/lib/enes100')
 import uwebsockets as web
 import ujson as json
 
-WS_URL = "ws://19.168.1.2:7755"
+WS_URL = "ws://192.168.1.2:7755"
 
 #  make a dict 
 mission_stuff = {
