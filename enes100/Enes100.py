@@ -7,8 +7,8 @@ import sys
 sys.path.append('/lib/enes100')
 import uwebsockets as web
 import ujson as json
-  
-# WebSocket Server
+
+# Websocket URL
 WS_URL = "ws://192.168.1.2:7755"
 
 #  make a dict 
@@ -20,6 +20,7 @@ mission_stuff = {
     'FIRE' : 3,
     'WATER' : 4,
     'SEED' : 5,
+    'HYDROGEN' : 6,
 
     # Crash Mission
     'DIRECTION' : 0,
@@ -64,6 +65,20 @@ mission_stuff = {
     'B' : 'B',
     'C' : 'C',
     'D' : 'D',
+    
+    # Hydrogen Mission
+    'VOLTAGE_OUTPUT' : 0,
+    'LED_COLOR' : 1,
+    'VOLTAGE_1' : 0,
+    'VOLTAGE_2' : 1,
+    'VOLTAGE_3' : 2,
+    'VOLTAGE_4' : 3,
+    'VOLTAGE_5' : 4,
+    'WHITE' : 0,
+    'RED' : 1,
+    'YELLOW' : 2,
+    'GREEN' : 3,
+    'BLUE' : 4,
 }
     
 
