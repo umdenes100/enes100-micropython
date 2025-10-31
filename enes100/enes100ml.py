@@ -2,7 +2,6 @@ import network
 import time
 from machine import Pin, UART
 import _thread
-import uasyncio as asyncio
 import sys
 sys.path.append('/lib/enes100')
 
@@ -90,12 +89,12 @@ def current_milli_time():
 class Enes100:
     def __init__(self):
         self.uart = None
-        
+
         self.team_name = ''
         self.mission_type = 0
         self.marker_id = 0
         self.room_number = 0
-        
+
         self.x = -1.0
         self.y = -1.0
         self.theta = -1.0
@@ -104,7 +103,7 @@ class Enes100:
     def begin(self, team_name, mission_type, marker_id, room_number, tx_pin, rx_pin):
         self.marker_id = marker_id
         self.uart = UART(1, baudrate=57600, tx=tx_pin, rx=rx_pin)
-        
+
 
         while self.state() not in [0x00, 0x01]:
             time.sleep_ms(50)
@@ -120,7 +119,7 @@ class Enes100:
 
         while self.state() != 0x01:
             time.sleep_ms(50)
-        
+
         _thread.start_new_thread(self._background_update, ())
 
     def _read_bytes(self, num_bytes, timeout_ms=100):
@@ -137,7 +136,7 @@ class Enes100:
         while True:
             self._update_if_needed()
             time.sleep_ms(50)
-    
+
     def state(self):
         if self.uart is None:
             return 0xFF
@@ -151,22 +150,21 @@ class Enes100:
         if result is None or len(result) == 0:
             return 0xFF
         return result[0]
-    
+
     def mission(self, mission_call, message_var):
         if self.uart is None:
             return -1;
-        
+
         self.uart.write(bytes([OP_MISSION]))
         self.uart.write(bytes([mission_stuff[mission_call.upper()]]))
-        
+
         if isinstance(message_var, str) and message_var.upper() in mission_stuff:
             message_var = mission_stuff[message_var.upper()]
 
-            
         self.uart.write(str(message_var).encode('utf-8'))
         self.uart.write(b'\x00')
         self.uart.write(FLUSH_SEQUENCE)
-        
+
     def ml_get_prediction(self, model_index):
         if self.uart is None:
             return -1
@@ -269,24 +267,21 @@ class Enes100:
             return
         theta_raw = int.from_bytes(data, 'little', True)
         self.theta = theta_raw / 100.0
-    
+
     def is_connected(self):
         return self.state() == 0x01
 
     def print(self, message):
         if self.uart is None:
-            return -1;
-        
-        str_message = str(message)
-        str_message.join('\n')
-        
-        self.uart.write(bytes([OP_PRINT]))          
-        self.uart.write(str_message.encode('utf-8'))
-        self.uart.write(b'\x00')
-        self.uart.write(FLUSH_SEQUENCE)
-        self.uart.flush()
-        
-          
+            return -1
+        msg = (
+            bytes([OP_PRINT])
+            + str(message).encode('utf-8')
+            + b'\n\x00'
+            + FLUSH_SEQUENCE
+        )
+        self.uart.write(msg)
+        time.sleep_ms(10)
 enes100 = Enes100()
 
 
