@@ -153,7 +153,7 @@ class Enes100:
 
     def mission(self, mission_call, message_var):
         if self.uart is None:
-            return -1;
+            return -1
 
         self.uart.write(bytes([OP_MISSION]))
         self.uart.write(bytes([mission_stuff[mission_call.upper()]]))
