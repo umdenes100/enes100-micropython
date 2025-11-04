@@ -1,4 +1,3 @@
-import network
 import time
 from machine import Pin, UART
 import _thread
