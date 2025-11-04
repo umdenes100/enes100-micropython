@@ -1,8 +1,8 @@
 # necessary for access to VS and other lib functions
-from Enes100 import enes100
+from enes100ml import enes100
 
-# Team Name, Mission Type, Aruco ID, Room Num
-enes100.begin('3 BiG BoOms', 'CRASH', 210, 1116)
+# enes100.begin('Team Name', 'Mission Type', Aruco ID, Room Num, Tx Pin, Rx Pin)
+enes100.begin('Fueled by Confusion', 'HYDROGEN', 210, 1116, 17, 16)
 
 # There is no get function in the micropython library... the location vars are automatically updated.
 # enes100.x -> your x coordinate. 0-4, in meters, -1 if aruco is not visible
@@ -15,6 +15,5 @@ if enes100.is_visible:
 else:
     enes100.print('Not visible.')
 
-enes100.mission('HEIGHT', 270) # Transmit the height of the payload in mm
-enes100.mission('LENGTH', 180) # Transmit the length of the payload in mm
-enes100.mission('DIRECTION', 'NORMAL_X') # Transmit the direction of the abnormality for normal in the x direction.
+enes100.mission('LED_COLOR', 'COLOR') # COLOR options are WHITE, RED, YELLOW, GREEN, and BLUE
+enes100.mission('VOLTAGE_OUTPUT', 'VOLTAGE_3') # VOLTAGE options are VOLTAGE_1 through VOLTAGE_5

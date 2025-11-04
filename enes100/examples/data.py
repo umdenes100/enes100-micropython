@@ -1,8 +1,8 @@
 # necessary for access to VS and other lib functions
-from enes100 import enes100
+from enes100ml import enes100
 
-# Team Name, Mission Type, Aruco ID, Room Num
-enes100.begin('Bit Happens', 'DATA', 210, 1116)
+# enes100.begin('Team Name', 'Mission Type', Aruco ID, Room Num, Tx Pin, Rx Pin)
+enes100.begin('Bit Happens', 'DATA', 210, 1116, 17, 16)
 
 # There is no get function in the micropython library... the location vars are automatically updated.
 # Enes100.x -> your x coordinate. 0-4, in meters, -1 if aruco is not visible

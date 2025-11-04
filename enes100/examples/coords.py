@@ -1,8 +1,8 @@
 # necessary for access to VS and other lib functions
-from enes100 import enes100
-# Team Name, Mission Type, Aruco ID, Room Num
+from enes100ml import enes100
 def simple_test():
-    enes100.begin('Name pending...', 'DATA', 231, 1116)
+    #enes100.begin('Team Name', 'Mission Type', Aruco ID, Room Num, Tx Pin, Rx Pin)
+    enes100.begin('Name pending...', 'DATA', 231, 1116, 17, 16)
     enes100.print('Connected!')
     
     # There is no get function in the micropython library... the location vars are automatically updated.
@@ -11,10 +11,10 @@ def simple_test():
     # enes100.theta -> your theta. -pi to pi, in radians, -1 if aruco is not visible
     
     # will print OTV coordinates if aruco id in begin statement is visible on arena
-   
-   while True:
-       enes100.print(f'We are at {enes100.x=} {enes100.y=} {enes100.theta=}')
-       enes100.print(f'Aruco Visible? {enes100.is_visible=}')
-       enes100.pring(f'Connnected? {enes100.is_connected()}')
+    
+    while True:
+        enes100.print(f'We are at {enes100.x=} {enes100.y=} {enes100.theta=}')
+        enes100.print(f'Aruco Visible? {enes100.is_visible=}')
+        enes100.print(f'Connected? {enes100.is_connected()}')
 
 simple_test()
