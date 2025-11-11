@@ -7,6 +7,7 @@ enes100.begin('asimple2dmodel', 'SEED', 210, 1116, 17, 16)
 
 while(1):
     enes100.print('Requesting prediction...')
+    # 1 is the model index that you input on the model upload page
     result = enes100.ml_get_prediction(1)
     enes100.print('Prediction result:' + str(result))
     time.sleep(5)
