@@ -81,13 +81,10 @@ OP_IS_CONNECTED = 0x07
 
 FLUSH_SEQUENCE = b'\xFF\xFE\xFD\xFC'
 
-def current_milli_time():
-    return round(time.time()*1000)
-
-
 class Enes100:
     def __init__(self):
         self.uart = None
+        self.suspend_updates = False
 
         self.team_name = ''
         self.mission_type = 0
@@ -98,6 +95,7 @@ class Enes100:
         self.y = -1.0
         self.theta = -1.0
         self.is_visible = False
+        
 
     def begin(self, team_name, mission_type, marker_id, room_number, tx_pin, rx_pin):
         self.marker_id = marker_id
@@ -133,7 +131,8 @@ class Enes100:
 
     def _background_update(self):
         while True:
-            self._update_if_needed()
+            if not self.suspend_updates:
+                self._update_if_needed()
             time.sleep_ms(50)
 
     def state(self):
@@ -168,42 +167,29 @@ class Enes100:
         if self.uart is None:
             return -1
 
-        # Send request
-        self.uart.write(bytes([OP_ML_PREDICTION]))
-        self.uart.write(bytes([model_index]))
-        self.uart.write(FLUSH_SEQUENCE)
+        # Stop background updates FIRST
+        self.suspend_updates = True
+        time.sleep_ms(20)
 
-        # Give the ESP a moment to respond
-        time.sleep_ms(1)
-
-        # Flush incoming buffer (clear noise)
+        # Clear ALL pending bytes BEFORE sending request
         while self.uart.any():
             self.uart.read(1)
 
-        # Wait for first byte
+        # Send ML prediction request
+        self.uart.write(bytes([OP_ML_PREDICTION]))
+        self.uart.write(bytes([model_index]))
+        self.uart.write(FLUSH_SEQUENCE)
+        
         start = time.ticks_ms()
         while not self.uart.any():
-            if time.ticks_diff(time.ticks_ms(), start) > 50:
-                return -1  # timeout
+            if time.ticks_diff(time.ticks_ms(), start) > 850:
+                return
+            
+        b0 = self.uart.read(1)[0]
 
-        b0 = self.uart.read(1)
-        if not b0:
-            return -1
-
-        # Wait for second byte
-        start = time.ticks_ms()
-        while not self.uart.any():
-            if time.ticks_diff(time.ticks_ms(), start) > 100:
-                return -1
-
-        b1 = self.uart.read(1)
-        if not b1:
-            return -1
-
-        # Combine bytes (little-endian)
-        result = (b1[0] << 8) | b0[0]
-        return result
-
+        # Resume updates
+        self.suspend_updates = False
+        return b0
 
     def _update_if_needed(self):
         if self.uart is None:
@@ -281,6 +267,6 @@ class Enes100:
         )
         self.uart.write(msg)
         time.sleep_ms(10)
-enes100 = Enes100()
 
+enes100 = Enes100()
 
