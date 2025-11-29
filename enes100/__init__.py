@@ -1,2 +1,2 @@
-from enes100ml.Enes100 import enes100
+from enes100.enes100ml import enes100
 
