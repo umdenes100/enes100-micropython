@@ -150,7 +150,7 @@ class Enes100:
             self.ws = web.connect(WS_URL)
             #print("Connected to WebSocket Server")
         else:
-            self.ws = wed.connect("ws://192.168.1.2:7755")
+            self.ws = web.connect("ws://192.168.1.2:7755")
             #print("Connected to WebSocket Server")
         
         # Send begin statement to VS
