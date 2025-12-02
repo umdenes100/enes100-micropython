@@ -90,7 +90,7 @@ class Enes100:
         self.mission_type = 0
         self.aruco_id = 0
         self.room_num = 0
-        self.password - ''
+        self.password = ''
         
         self.ws = None
         self.x = -1.0
@@ -124,6 +124,7 @@ class Enes100:
         self.mission_type = mission_stuff[mission_type.upper()]
         self.aruco_id = aruco_id
         self.room_num = room_num
+        self.password = password
 
         if password == 'null':            
             # Connect to WiFi
