@@ -90,6 +90,7 @@ class Enes100:
         self.mission_type = 0
         self.aruco_id = 0
         self.room_num = 0
+        self.password - ''
         
         self.ws = None
         self.x = -1.0
@@ -118,16 +119,22 @@ class Enes100:
                     self.theta = aruco.get("theta", -1.0)
     
     # begin statement used to gather basic info from teams, connect to wifi, init websocket and get it running
-    def begin(self, team_name, mission_type, aruco_id, room_num):
+    def begin(self, team_name, mission_type, aruco_id, room_num, password='null'):
         self.team_name = team_name
         self.mission_type = mission_stuff[mission_type.upper()]
         self.aruco_id = aruco_id
         self.room_num = room_num
-        
-        # Connect to WiFi
-        ssid = f'VisionSystem{self.room_num}-2.4'
-        key = '@R6u!n01'
-        print(f'Connecting to {ssid}...')
+
+        if password == 'null':            
+            # Connect to WiFi
+            ssid = f'VisionSystem{self.room_num}-2.4'
+            key = '@R6u!n01'
+            # print(f'Connecting to {ssid}...')
+        else:
+            # Connect to Campus WiFi
+            ssid = 'umd-iot'
+            key = password
+            # print('Connecting to umd-iot...')
         
         sta_if = network.WLAN(network.WLAN.IF_STA)
         if not sta_if.isconnected():
@@ -135,11 +142,15 @@ class Enes100:
             sta_if.connect(ssid, key)
             while not sta_if.isconnected():
                 time.sleep(0.01)
-        #print('Connected to WiFi')
+        # print('Connected to WiFi')
         
         # Connect to VS
-        self.ws = web.connect(WS_URL)
-        #print("Connected to WebSocket Server")
+        if password == 'null':
+            self.ws = web.connect(WS_URL)
+            #print("Connected to WebSocket Server")
+        else:
+            self.ws = wed.connect("ws://192.168.1.2:7755")
+            #print("Connected to WebSocket Server")
         
         # Send begin statement to VS
         packet = {
