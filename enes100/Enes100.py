@@ -1,240 +1,475 @@
-KS-AB-0001	bc:dd:c2:24:a8:6c	JTiKnCm4gs6D
-KS-AB-0002	10:06:1c:b4:de:68	YtPeLqJkmsxE
-KS-AB-0003	10:06:1c:b5:18:5c	vvTUqjxthWuY
-KS-AB-0004	cc:7b:5c:36:56:30	vAJPpGyScFb9
-KS-AB-0005	cc:7b:5c:36:91:4c	RmNX4sAqhHiA
-KS-AB-0006	08:a6:f7:6b:ea:9c	X9YnycF5QU4F
-KS-AB-0007	cc:7b:5c:35:8a:24	vcYQXhEjP7fD
-KS-AB-0008	08:a6:f7:bb:6d:9c	9vQvYY4CvkYu
-KS-AB-0009	cc:7b:5c:35:8c:b8	s9zb79JmiLz6
-KS-AB-0010	4c:11:ae:65:c1:ec	x5FAvzwqR7MT
-KS-AB-0011	08:a6:f7:70:3f:08	5aTEjb5QHEDt
-KS-AB-0012	cc:7b:5c:36:98:8c	kLQnaCJ66qgr
-KS-AB-0013	cc:7b:5c:36:76:f8	665nqsnKYXUN
-KS-AB-0014	10:06:1c:b5:49:04	MVwhKN3iRqSH
-KS-AB-0015	c8:2e:18:92:36:28	QdWDCQX3h3gi
-KS-AB-0016	10:06:1c:85:3f:5c	7RETi4Kc5hCs
-KS-AB-0017	10:06:1c:b4:e4:b0	dwUMk3vvupPt
-KS-AB-0018	10:06:1c:b5:fc:94	3isNU3NUVtGE
-KS-AB-0019	10:06:1c:b5:02:ac	fNHAsHAYvTnw
-KS-AB-0020	cc:7b:5c:36:9d:dc	LYTQzMKkFkRr
-KS-AB-0021	08:a6:f7:bb:ef:a4	km66bLTyHGgy
-KS-AB-0022	cc:7b:5c:36:7d:90	AD44yyQrDYRy
-KS-AB-0023	10:06:1c:b5:75:c4	NiC3qX35KN3d
-KS-AB-0024	10:06:1c:b6:00:04	sSrwz449VKLY
-KS-AB-0025	10:06:1c:b4:fc:d8	JYvrA5wxaKaE
-KS-AB-0026	10:06:1c:b4:dd:5c	AzkhjPwTv74z
-KS-AB-0027	08:a6:f7:bb:2f:c8	AGi7UUinnvUk
-KS-AB-0028	cc:7b:5c:36:84:88	9cf7aCtgHgQX
-KS-AB-0029	08:a6:f7:bb:55:f4	cMjV3mRJJ9z7
-KS-AB-0030	10:06:1c:b5:93:c8	cLHCP75LUDkt
-KS-AB-0031	10:06:1c:b6:10:74	tyYApgCdFQMW
-KS-AB-0032	10:06:1c:b5:97:c8	iXXWEtNyfHfV
-KS-AB-0033	cc:7b:5c:36:6d:dc	UsAJuXJgFHk9
-KS-AB-0034	cc:7b:5c:36:4c:34	ynYvLAz95Yj6
-KS-AB-0035	4c:11:ae:65:b7:7c	jFjH6sNjmarh
-KS-AB-0036	10:06:1c:b5:2a:18	nUNUFh4D9yyM
-KS-AB-0037	10:06:1c:85:41:1c	tJTGw6Tw7JgH
-KS-AB-0038	10:06:1c:b4:dd:ec	kebthg4zaPCR
-KS-AB-0039	08:a6:f7:bb:9b:04	GzCKN7pxLLCR
-KS-AB-0040	10:06:1c:85:71:28	bDJr3w3JCSTY
-KS-AB-0041	cc:7b:5c:36:7d:98	L56kt3i4dC9n
-KS-AB-0042	10:06:1c:b5:28:d0	tsQCqs659zae
-KS-AB-0043	10:06:1c:b4:e4:d8	rGuhz4n9iYR3
-KS-AB-0044	10:06:1c:b4:f9:14	sJvzmtjdqH7f
-KS-AB-0045	cc:7b:5c:36:5d:74	KPaAh3TddnPG
-KS-AB-0046	10:06:1c:b4:de:44	x6SgGHtSF57q
-KS-AB-0047	10:06:1c:85:3b:60	DrcjwR3iCnJj
-KS-AB-0048	cc:7b:5c:36:5e:48	qnyhpfKJq7VA
-KS-AB-0049	08:a6:f7:70:3b:50	HPYV3fUKJ5dW
-KS-AB-0050	08:a6:f7:6b:f1:6c	pKReqDejzdEb
-KS-AB-0051	10:06:1c:85:3b:3c	ddGVfqrcbepL
-KS-AB-0052	10:06:1c:b4:dd:f4	bNdMfJa6K4tS
-KS-AB-0053	c8:2e:18:91:89:90	w9smbPRQ36AY
-KS-AB-0054	cc:7b:5c:36:91:60	tnueQ73iDrVe
-KS-AB-0055	bc:dd:c2:ce:dc:44	kgSaqEfupR6N
-KS-AB-0056	10:06:1c:b4:e1:d8	XX4uhJnU35dN
-KS-AB-0057	10:06:1c:b5:07:58	RcriV6zqFtHT
-KS-AB-0058	10:06:1c:b4:e4:d0	KUKE6Ap7WViC
-KS-AB-0059	cc:7b:5c:36:9a:7c	jaQVruiu3ddd
-KS-AB-0060	cc:7b:5c:36:7d:e4	SSGsykib9cpu
-KS-AB-0061	10:06:1c:b4:e4:94	F7zmXmSzk5yp
-KS-AB-0062	10:06:1c:b5:8c:bc	R4SeSfYqgnbJ
-KS-AB-0063	08:a6:f7:69:c9:d8	hwh7umTTfuhh
-KS-AB-0064	10:06:1c:b5:76:d0	Qp4cwNS379Uv
-KS-AB-0065	08:a6:f7:bb:89:6c	3AQG5Pf5Ujx9
-KS-AB-0066	10:06:1c:b5:12:d8	rAdkHikiGdQ4
-KS-AB-0067	08:a6:f7:70:30:08	tADgCgEMgCbu
-KS-AB-0068	c8:2e:18:90:97:40	xGbQjxaUFDTa
-KS-AB-0069	10:06:1c:b5:0b:f4	v5jVFPYLteC4
-KS-AB-0070	10:06:1c:b6:10:84	pkdstjCXpptm
-KS-AB-0071	10:06:1c:b5:1d:48	qgEvkRWW4vVe
-KS-AB-0072	10:06:1c:b5:14:0c	pMLt7ztuev9W
-KS-AB-0073	08:a6:f7:68:b1:94	ifgaSC5Pvn7s
-KS-AB-0074	cc:7b:5c:36:7d:d8	damExv74bXeD
-KS-AB-0075	10:06:1c:b4:de:08	x3gSTsKXSmtt
-KS-AB-0076	10:06:1c:b5:1c:a0	j5kjitpYKvfQ
-KS-AB-0077	10:06:1c:b5:08:08	JU6CufrzJnGs
-KS-AB-0078	10:06:1c:b5:24:b0	PHUEtxCdePyp
-KS-AB-0079	10:06:1c:b4:f9:dc	sybDixU4KscN
-KS-AB-0080	10:06:1c:b5:87:0c	nguwedkWeFjw
-KS-AB-0081	10:06:1c:b4:f1:10	accDQAHR5aMt
-KS-AB-0082	10:06:1c:b5:6d:7c	wHL55UFsaPTw
-KS-AB-0083	10:06:1c:b4:dc:ac	p7EWDqQDrw6M
-KS-AB-0084	10:06:1c:b5:77:00	FxihGuJab7ew
-KS-AB-0085	10:06:1c:b5:03:9c	qg3zCFedQ6zi
-KS-AB-0086	10:06:1c:b5:4b:8c	b4NVjswVkYcY
-KS-AB-0087	08:a6:f7:6a:0a:60	FJufJjfUEWJS
-KS-AB-0088	10:06:1c:b5:0a:34	aq7RPWjcGhx6
-KS-AB-0089	10:06:1c:b4:d7:98	KaXXvggTxnQn
-KS-AB-0090	10:06:1c:b4:f3:54	XXnNkGgz7diL
-KS-AB-0091	10:06:1c:b4:f6:f4	NJufEmbXbzvp
-KS-AB-0092	10:06:1c:b4:d7:54	Dk7YdWAiUnd7
-KS-AB-0093	cc:7b:5c:36:95:8c	KcQNyUxHR6RF
-KS-AB-0094	10:06:1c:b6:05:5c	RczdKTSxt5Ns
-KS-AB-0095	10:06:1c:b4:f5:78	YsiS4dbPLVLy
-KS-AB-0096	10:06:1c:b4:db:98	ExMGKC4NvdkT
-KS-AB-0097	10:06:1c:b5:76:e4	z5mg7RsR5Cws
-KS-AB-0098	10:06:1c:b5:04:dc	yxyV63xSSbdy
-KS-AB-0099	10:06:1c:87:38:b0	n6PRSW3WmnHc
-KS-AB-0100	10:06:1c:b4:ff:0c	5DkFjwzehDsz
-KS-AB-0101	08:a6:f7:6a:47:04	kfy9yeMCjCJs
-KS-AB-0102	10:06:1c:b5:68:88	FGWhFwkYcaSV
-KS-AB-0103	10:06:1c:b6:14:0c	u5xTx5aQPfUx
-KS-AB-0104	10:06:1c:b5:d6:20	FPqPd4epqxtX
-KS-AB-0105	10:06:1c:b4:ff:44	KMveYgANzPap
-KS-AB-0106	cc:7b:5c:36:72:ec	SQcbcAqmnFwa
-KS-AB-0107	cc:7b:5c:36:6e:50	xzMjeydmwUxH
-KS-AB-0108	10:06:1c:b5:1e:d8	YxXYttwD4e4w
-KS-AB-0109	10:06:1c:b4:e0:ac	cCD4LnvtJsFA
-KS-AB-0110	10:06:1c:b5:8d:50	SCTUsRuFQykG
-KS-AB-0111	c8:2e:18:92:12:a8	AzXshpTFtQPA
-KS-AB-0112	10:06:1c:b5:b7:c4	AqF6YUSzFTMD
-KS-AB-0113	10:06:1c:b5:00:c0	CULvrQquPu9v
-KS-AB-0114	10:06:1c:85:47:58	5e9jT7Rf4MxU
-KS-AB-0115	10:06:1c:b4:fb:20	WVqyNvbeCjm5
-KS-AB-0116	cc:7b:5c:36:98:e8	Kbk6WxXCXeHj
-KS-AB-0117	10:06:1c:b4:e6:f8	rv3L4gWHKyDH
-KS-AB-0118	cc:7b:5c:36:5f:3c	t3p9DpSKxs9p
-KS-AB-0119	08:a6:f7:6a:04:40	sLjnbx6wdzYr
-KS-AB-0120	10:06:1c:85:47:e4	detGycVf7nr4
-KS-AB-0121	cc:7b:5c:35:8a:80	n4uTeximHGwM
-KS-AB-0122	10:06:1c:b4:f8:f8	dMKtTjRrpeGi
-KS-AB-0123	10:06:1c:b5:8f:90	YpnA9ixpXpMd
-KS-AB-0124	cc:7b:5c:36:4d:9c	gUCsTWUuQpCi
-KS-AB-0125	08:a6:f7:bb:86:a8	R3xEKSyh5SRH
-KS-AB-0126	10:06:1c:b5:8c:3c	PMW6w99k6NdW
-KS-AB-0127	08:a6:f7:bb:cc:48	WwnSsmHbKWUn
-KS-AB-0128	10:06:1c:b5:8c:94	cu7rcSmyRcAu
-KS-AB-0129	10:06:1c:b4:e1:2c	nKGPJhYH3EHt
-KS-AB-0130	10:06:1c:b4:f8:c0	cGVn5cMphfYQ
-KS-AB-0131	10:06:1c:b6:13:c0	fzkNsadW5b4R
-KS-AB-0132	cc:7b:5c:36:98:b8	NT946VfemMAL
-KS-AB-0133	10:06:1c:86:5e:40	pepLsYG5VtwT
-KS-AB-0134	10:06:1c:b4:ef:74	YiFqLYzqpNsF
-KS-AB-0135	10:06:1c:b5:8e:b0	j6wspCsvAqAy
-KS-AB-0136	cc:7b:5c:36:4f:00	3TRxssKQpqty
-KS-AB-0137	cc:7b:5c:36:4d:a	
-KS-AB-0138	10:06:1c:b5:1e:f4	AEv3SWLDA3YT
-KS-AB-0139	08:a6:f7:bb:b8:b4	kViCy94sig7E
-KS-AB-0140	cc:7b:5c:36:60:fc	VsPmhKLmAWCi
-KS-AB-0141	10:06:1c:b4:f0:d0	fLWLf7Sfckkb
-KS-AB-0142	cc:7b:5c:36:84:44	44PKQcn3Ke9W
-KS-AB-0143	10:06:1c:b5:1d:5c	MfGYtzSD6nvq
-KS-AB-0144	10:06:1c:b5:ff:50	mXzCUukJQSPg
-KS-AB-0145	cc:7b:5c:36:91:30	XdsWakReKxcM
-KS-AB-0146	cc:7b:5c:36:7d:34	HMLg3JVUSwVT
-KS-AB-0147	10:06:1c:b4:da:18	zcEahRS5gvxQ
-KS-AB-0148	cc:7b:5c:36:4d:24	g3rT5RXXvWXW
-KS-AB-0149	10:06:1c:b5:b5:04	rCVajrGVzd7q
-KS-AB-0150	10:06:1c:b5:0b:18	tVqQAarMuyxt
-KS-AB-0151	08:a6:f7:6b:cf:ac	wcSdDwcpxcLR
-KS-AB-0152	cc:7b:5c:36:6b:50	jLATVdEiKg5F
-KS-AB-0153	08:a6:f7:bb:b1:48	kTKJrHYGw7Ee
-KS-AB-0154	10:06:1c:85:47:2c	cKCz9Sjd5UKe
-KS-AB-0155	c8:2e:18:90:72:f0	vWLhTKjziCxJ
-KS-AB-0156	bc:dd:c2:cc:2b:5c	tyDSE4Tatmbq
-KS-AB-0157	10:06:1c:b5:f8:d0	yAnLjgpePpEw
-KS-AB-0158	10:06:1c:b5:1c:d8	iD7SSWYQiqYe
-KS-AB-0159	10:06:1c:b5:74:fc	EjX3icV434zm
-KS-AB-0160	10:06:1c:85:3f:b0	wcU5TpSKQgmE
-KS-AB-0161	08:a6:f7:6b:ef:8c	Sknq3ikN3H4n
-KS-AB-0162	10:06:1c:b5:06:e0	kmDEqiMsUnxq
-KS-AB-0163	08:a6:f7:bb:91:d4	SnkyLvGAwA4V
-KS-AB-0164	10:06:1c:b4:eb:e8	7wdpTkFnzLcE
-KS-AB-0165	08:a6:f7:70:1a:10	zppMiXXEcL4Y
-KS-AB-0166	08:a6:f7:70:33:14	5ibtQfd9WE4r
-KS-AB-0167	08:a6:f7:bb:83:04	ypLtTMKWbQSF
-KS-AB-0168	10:06:1c:b5:00:58	cirJpdURmm5X
-KS-AB-0169	cc:7b:5c:36:5c:8c	4KjQxgYgEAn6
-KS-AB-0170	10:06:1c:b5:76:3c	bii9yndQ9Rsn
-KS-AB-0171	08:a6:f7:bb:cc:1c	NgnzPdRynaXU
-KS-AB-0172	10:06:1c:87:5f:68	HM97Wkfb5XVU
-KS-AB-0173	cc:7b:5c:36:9c:08	3xzRS7E6m4na
-KS-AB-0174	cc:7b:5c:36:95:9c	kWdezpNC4rqW
-KS-AB-0175	10:06:1c:b4:f6:c8	qGWNmAQ6NJmC
-KS-AB-0176	10:06:1c:85:3f:18	Ji6qcxGzzTYV
-KS-AB-0177	10:06:1c:b5:f9:3c	3nDgVRu9XDEw
-KS-AB-0178	08:a6:f7:bb:9d:d8	N7fQVxfCrqVY
-KS-AB-0179	08:a6:f7:bb:ae:08	qypb6JRMEERP
-KS-AB-0180	cc:7b:5c:36:63:04	WvKaTeGyTE4P
-KS-AB-0181	10:06:1c:b5:76:a4	zSFnfadzAGay
-KS-AB-0182	10:06:1c:b5:89:78	wLd6sjLAU3Jh
-KS-AB-0183	cc:7b:5c:36:82:00	atuscsXanaUr
-KS-AB-0184	10:06:1c:b5:11:fc	JqUVHkviCG3P
-KS-AB-0185	08:a6:f7:6a:3e:e4	TddePMqmjYWS
-KS-AB-0186	08:a6:f7:bb:7c:48	RgcpSGhT4Ltf
-KS-AB-0187	08:a6:f7:bb:26:8c	q3tj5wNkngcJ
-KS-AB-0188	08:a6:f7:bb:f1:e8	EJ5uKT9ENg6F
-KS-AB-0189	cc:7b:5c:36:9d:ac	ktru3YGxaprQ
-KS-AB-0190	cc:7b:5c:36:5d:14	NcnbqNPaVqwd
-KS-AB-0191	10:06:1c:b4:f8:ec	7qs7qNcAetuD
-KS-AB-0192	cc:7b:5c:36:9b:dc	nddHXCEbj4hQ
-KS-AB-0193	10:06:1c:b5:e3:58	4FCgHy9fvQgF
-KS-AB-0194	10:06:1c:b4:f9:4c	ry3eNaNiHLCE
-KS-AB-0195	08:a6:f7:bb:70:54	KaXNayiGf9AK
-KS-AB-0196	10:06:1c:85:40:dc	aDrwJxyaPWSd
-KS-AB-0197	10:06:1c:b4:f8:b8	NpcPPh4MnrEA
-KS-AB-0198	cc:7b:5c:35:89:ac	UeF94NpmfeLU
-KS-AB-0199	cc:7b:5c:35:8a:20	Fs94VTpCJFfw
-KS-AB-0200	10:06:1c:b4:e4:c8	X7iEphHxrvuV
-KS-AB-0201	08:a6:f7:bb:a3:04	vppYdpJ9QdQ7
-KS-AB-0202	10:06:1c:b4:e3:54	gnzybnz6YzfJ
-KS-AB-0203	cc:7b:5c:36:81:3c	Rftnu7mLV6SY
-KS-AB-0204	10:06:1c:b5:1e:1c	iT4FJTKiPwQg
-KS-AB-0205	10:06:1c:85:3b:90	DXuxdTLnnC57
-KS-AB-0206	08:a6:f7:bb:8e:50	TcLp5sdEvKej
-KS-AB-0207	10:06:1c:b5:1c:4c	Frpr6SdDCgvL
-KS-AB-0208	cc:7b:5c:36:7d:40	bDmLER7HAy7V
-KS-AB-0209	10:06:1c:87:59:14	aJtD9ptxfjDF
-KS-AB-0210	4c:11:ae:65:c0:54	uxFDFfpYD5WR
-KS-AB-0211	cc:7b:5c:36:4a:10	A7jdp7vc6pCQ
-KS-AB-0212	cc:7b:5c:36:9d:98	9nsaMK95sTLp
-KS-AB-0213	10:06:1c:b5:00:e4	YSg7awYpuEki
-KS-AB-0214	cc:7b:5c:36:5e:84	fvkbMC7wnezY
-KS-AB-0215	08:a6:f7:bb:5e:00	LNCuTSdSxdN5
-KS-AB-0216	08:a6:f7:70:55:1c	tiHRa9rDFfLF
-KS-AB-0217	10:06:1c:b5:b7:b8	bXgkYgt7yTKE
-KS-AB-0218	10:06:1c:b4:e3:6c	q7KGdaiwkF9N
-KS-AB-0219	cc:7b:5c:36:6e:9c	e5g7TgW5QakR
-KS-AB-0220	cc:7b:5c:36:6f:7c	aQJ5zQTfNSbu
-KS-AB-0221	10:06:1c:b5:13:00	cdXreYtJMCvE
-KS-AB-0222	10:06:1c:b4:ff:fc	aK7sLQKuFKtH
-KS-AB-0223	10:06:1c:b5:74:f0	pX6UQQVyJQgN
-KS-AB-0224	cc:7b:5c:36:5c:6c	dd3FDTX7kRqV
-KS-AB-0225	10:06:1c:b5:00:f8	HjczqyraLFhj
-KS-AB-0226	cc:7b:5c:36:5d:50	czgfFTtWSaNf
-KS-AB-0227	08:a6:f7:6a:f9:3c	qCHfhAUzL9hf
-KS-AB-0228	08:a6:f7:bb:9c:d8	XCycm6NbQigz
-KS-AB-0229	10:06:1c:b5:d4:78	a9g5SUCH4Def
-KS-AB-0230	10:06:1c:b5:04:7c	ANPhHgVdRxvS
-KS-AB-0231	bc:dd:c2:cd:99:70	CpcQTAVXtzhS
-KS-AB-0232	10:06:1c:b5:98:40	sj6YJ6PpmcWu
-KS-AB-0233	08:a6:f7:59:68:74	qv5aQAHes4NC
-KS-AB-0234	10:06:1c:b4:fe:cc	zJhaWD4UQV9K
-KS-AB-0235	10:06:1c:b4:f3:ec	LrpUWMTCrR4M
-KS-AB-0236	10:06:1c:b4:f9:e8	Arky6Y7dbsi7
-KS-AB-0237	10:06:1c:b6:0e:78	6e7GgvVU4YEc
-KS-AB-0238	cc:7b:5c:35:79:e4	LrhfMYNFgLEz
-KS-AB-0239	10:06:1c:b5:e3:20	h6uFzzDfHbSM
-KS-AB-0240	08:a6:f7:bb:8b:b8	4zhqtyN4Y5Rq
+import network
+import time
+import json
+import _thread
+
+from . import uwebsockets
+from .wifi_db import WIFI_MAP
+
+
+class Enes100:
+    WIFI_SSID = "umd-iot"
+
+    # If MAC not found, either refuse or fall back.
+    # For classroom reliability, I suggest refusing by default:
+    REQUIRE_KNOWN_MAC = True
+    WIFI_PASS_FALLBACK = "MfGYtzSD6nvq"
+
+    # Optional: if your environment sometimes has wifi.txt, we still support it.
+    WIFI_TXT_PATH = "enes100/wifi.txt"
+
+    ROOM_IP_MAP = {
+        1201: "10.112.9.116",
+        1116: "10.112.9.114",
+    }
+
+    WS_PORT = 7755
+    WS_PATH = "/ws"
+
+    _RECONNECT_DELAY_MS = 2000
+    _WS_RECV_TIMEOUT_S = 2
+
+    _PING_PERIOD_MS = 5000
+    _PING_MISS_LIMIT = 5
+
+    _POSE_REQUEST_PERIOD_MS = 250  # 4Hz
+
+    DEBUG = False
+
+    _lock = None
+    _thread_started = False
+    _stop_flag = False
+
+    _wlan = None
+    _ws = None
+    _connected = False
+
+    _team_name = ""
+    _team_type = ""
+    _marker_id = -1
+    _room_number = 0
+    _vision_ip = "10.112.9.116"
+
+    _wifi_pass = WIFI_PASS_FALLBACK
+    _hostname = None
+    _mac_str = None
+
+    _x = -1.0
+    _y = -1.0
+    _theta = -1.0
+    _visible = False
+
+    _missed_pongs = 0
+
+    _print_queue = []
+    _PRINT_QUEUE_MAX = 20
+
+    # -------- Public API --------
+
+    @classmethod
+    def begin(cls, teamName, teamType, markerId, roomNumber):
+        if cls._lock is None:
+            cls._lock = _thread.allocate_lock()
+
+        with cls._lock:
+            cls._team_name = str(teamName)
+            cls._team_type = str(teamType)
+            cls._marker_id = int(markerId)
+            cls._room_number = int(roomNumber)
+            cls._vision_ip = cls.ROOM_IP_MAP.get(cls._room_number, "10.112.9.116")
+            cls._stop_flag = False
+
+        cls._wifi_connect()
+
+        if not cls._thread_started:
+            cls._thread_started = True
+            _thread.start_new_thread(cls._worker_thread, ())
+
+        t0 = time.ticks_ms()
+        while time.ticks_diff(time.ticks_ms(), t0) < 5000:
+            if cls.isConnected():
+                return True
+            time.sleep_ms(50)
+
+        return cls.isConnected()
+
+    @classmethod
+    def isConnected(cls):
+        with cls._lock:
+            try:
+                wlan_ok = (cls._wlan is not None and cls._wlan.isconnected())
+            except Exception:
+                wlan_ok = False
+            return bool(wlan_ok and cls._connected and (cls._ws is not None))
+
+    @classmethod
+    def getX(cls):
+        with cls._lock:
+            return cls._x
+
+    @classmethod
+    def getY(cls):
+        with cls._lock:
+            return cls._y
+
+    @classmethod
+    def getTheta(cls):
+        with cls._lock:
+            return cls._theta
+
+    @classmethod
+    def isVisible(cls):
+        with cls._lock:
+            return bool(cls._visible)
+
+    @classmethod
+    def print(cls, msg):
+        s = str(msg)
+        with cls._lock:
+            if len(cls._print_queue) >= cls._PRINT_QUEUE_MAX:
+                cls._print_queue.pop(0)
+            cls._print_queue.append(s)
+        return True
+
+    @classmethod
+    def stop(cls):
+        with cls._lock:
+            cls._stop_flag = True
+        time.sleep_ms(200)
+
+    @classmethod
+    def addRoom(cls, roomNumber, visionIp):
+        with cls._lock:
+            cls.ROOM_IP_MAP[int(roomNumber)] = str(visionIp)
+
+    # -------- Worker thread --------
+
+    @classmethod
+    def _worker_thread(cls):
+        last_ping_ms = time.ticks_ms()
+        last_pose_req_ms = time.ticks_ms()
+
+        while True:
+            with cls._lock:
+                if cls._stop_flag:
+                    break
+
+            if not cls._wifi_ok():
+                try:
+                    cls._wifi_connect()
+                except Exception as e:
+                    if cls.DEBUG:
+                        print("[enes100] wifi_connect failed:", repr(e))
+                    cls._drop_ws()
+                    time.sleep_ms(cls._RECONNECT_DELAY_MS)
+                    continue
+
+            if not cls._ws_ok():
+                try:
+                    cls._connect_ws_and_begin()
+                    last_ping_ms = time.ticks_ms()
+                    last_pose_req_ms = time.ticks_ms()
+                except Exception as e:
+                    if cls.DEBUG:
+                        print("[enes100] ws_connect failed:", repr(e))
+                    cls._drop_ws()
+                    time.sleep_ms(cls._RECONNECT_DELAY_MS)
+                    continue
+
+            now = time.ticks_ms()
+
+            cls._flush_print_queue()
+
+            if time.ticks_diff(now, last_ping_ms) >= cls._PING_PERIOD_MS:
+                last_ping_ms = now
+                try:
+                    cls._ws_send({"op": "ping", "teamName": cls._team_name, "status": "ping"})
+                    with cls._lock:
+                        cls._missed_pongs += 1
+                        if cls._missed_pongs >= cls._PING_MISS_LIMIT:
+                            if cls.DEBUG:
+                                print("[enes100] missed pongs -> disconnect")
+                            cls._drop_ws()
+                            continue
+                except Exception:
+                    cls._drop_ws()
+                    continue
+
+            if time.ticks_diff(now, last_pose_req_ms) >= cls._POSE_REQUEST_PERIOD_MS:
+                last_pose_req_ms = now
+                try:
+                    cls._ws_send({"op": "aruco", "teamName": cls._team_name})
+                except Exception:
+                    cls._drop_ws()
+                    continue
+
+            for _ in range(4):
+                msg = None
+                try:
+                    msg = cls._ws_recv()
+                except Exception:
+                    cls._drop_ws()
+
+                if not msg:
+                    break
+
+                cls._handle_message(msg)
+
+            time.sleep_ms(10)
+
+        cls._drop_ws()
+        with cls._lock:
+            cls._thread_started = False
+
+    # -------- Internal helpers --------
+
+    @classmethod
+    def _wifi_ok(cls):
+        with cls._lock:
+            wlan = cls._wlan
+        if wlan is None:
+            return False
+        try:
+            return wlan.isconnected()
+        except Exception:
+            return False
+
+    @staticmethod
+    def _mac_bytes_to_str(mac_bytes):
+        return ":".join("{:02x}".format(b) for b in mac_bytes)
+
+    @classmethod
+    def _read_wifi_txt_for_mac(cls, mac_str):
+        # Optional path-based lookup if wifi.txt happens to exist
+        try:
+            with open(cls.WIFI_TXT_PATH, "r") as f:
+                for raw in f:
+                    line = raw.strip()
+                    if not line or line.startswith("#"):
+                        continue
+                    parts = line.split("\t")
+                    if len(parts) < 3:
+                        continue
+                    name = parts[0].strip()
+                    mac = parts[1].strip().lower()
+                    pw = parts[2].strip()
+                    if mac == mac_str.lower():
+                        return name, pw
+        except OSError:
+            return None, None
+        except Exception:
+            return None, None
+        return None, None
+
+    @classmethod
+    def _lookup_wifi_creds(cls, mac_str):
+        # 1) try wifi.txt (if present)
+        name, pw = cls._read_wifi_txt_for_mac(mac_str)
+        if name and pw:
+            return name, pw
+
+        # 2) fallback to installed python mapping
+        tup = WIFI_MAP.get(mac_str.lower())
+        if tup:
+            return tup[0], tup[1]
+
+        return None, None
+
+    @classmethod
+    def _wifi_connect(cls):
+        wlan = network.WLAN(network.STA_IF)
+
+        with cls._lock:
+            cls._wlan = wlan
+
+        # Determine MAC and lookup creds
+        try:
+            mac_bytes = wlan.config("mac")
+            mac_str = cls._mac_bytes_to_str(mac_bytes)
+        except Exception:
+            mac_str = None
+
+        hostname = None
+        password = None
+
+        if mac_str:
+            hostname, password = cls._lookup_wifi_creds(mac_str)
+            with cls._lock:
+                cls._mac_str = mac_str
+
+        if not hostname or not password:
+            if cls.REQUIRE_KNOWN_MAC:
+                raise RuntimeError("MAC not found in wifi_db (and wifi.txt missing). mac={}".format(mac_str))
+            hostname = None
+            password = cls.WIFI_PASS_FALLBACK
+
+        with cls._lock:
+            cls._wifi_pass = password
+            cls._hostname = hostname
+
+        # Apply hostname if supported
+        if hostname:
+            try:
+                wlan.config(dhcp_hostname=hostname)
+            except Exception:
+                pass
+
+        # reset trick
+        try:
+            wlan.active(False)
+            time.sleep(0.5)
+        except Exception:
+            pass
+
+        wlan.active(True)
+        time.sleep(0.5)
+
+        try:
+            ap = network.WLAN(network.AP_IF)
+            ap.active(False)
+        except Exception:
+            pass
+
+        if wlan.isconnected():
+            return
+
+        if cls.DEBUG:
+            with cls._lock:
+                print("[enes100] Connecting WiFi SSID={} mac={} host={}...".format(
+                    cls.WIFI_SSID, cls._mac_str, cls._hostname
+                ))
+
+        wlan.connect(cls.WIFI_SSID, password)
+
+        t0 = time.time()
+        while not wlan.isconnected():
+            if time.time() - t0 > 25:
+                raise RuntimeError("WiFi connect timeout")
+            time.sleep(0.2)
+
+        if cls.DEBUG:
+            print("[enes100] WiFi connected:", wlan.ifconfig())
+
+    @classmethod
+    def _ws_ok(cls):
+        with cls._lock:
+            return bool(cls._connected and (cls._ws is not None))
+
+    @classmethod
+    def _ws_url(cls):
+        with cls._lock:
+            ip = cls._vision_ip
+        path = cls.WS_PATH
+        if not path.startswith("/"):
+            path = "/" + path
+        return "ws://{}:{}{}".format(ip, cls.WS_PORT, path)
+
+    @classmethod
+    def _connect_ws_and_begin(cls):
+        cls._drop_ws()
+
+        url = cls._ws_url()
+        if cls.DEBUG:
+            print("[enes100] WS connecting:", url)
+
+        ws = uwebsockets.connect(url)
+        ws.settimeout(cls._WS_RECV_TIMEOUT_S)
+
+        with cls._lock:
+            cls._ws = ws
+
+        cls._ws_send({
+            "op": "begin",
+            "teamName": cls._team_name,
+            "aruco": int(cls._marker_id),
+            "teamType": cls._team_type,
+        })
+
+        with cls._lock:
+            cls._connected = True
+            cls._missed_pongs = 0
+
+    @classmethod
+    def _drop_ws(cls):
+        ws = None
+        with cls._lock:
+            ws = cls._ws
+            cls._ws = None
+            cls._connected = False
+            cls._missed_pongs = 0
+        if ws is not None:
+            try:
+                ws.close()
+            except Exception:
+                pass
+
+    @classmethod
+    def _ws_send(cls, obj):
+        with cls._lock:
+            ws = cls._ws
+        if ws is None:
+            raise RuntimeError("ws not connected")
+        ws.send(json.dumps(obj))
+
+    @classmethod
+    def _ws_recv(cls):
+        with cls._lock:
+            ws = cls._ws
+        if ws is None:
+            return None
+        try:
+            return ws.recv()
+        except OSError:
+            return None
+
+    @classmethod
+    def _handle_message(cls, msg):
+        try:
+            data = json.loads(msg)
+        except Exception:
+            return
+
+        op = str(data.get("op", "")).lower()
+
+        if op == "aruco":
+            try:
+                x = float(data.get("x", -1.0))
+                y = float(data.get("y", -1.0))
+                t = float(data.get("theta", -1.0))
+                vis = bool(data.get("is_visible", False))
+            except Exception:
+                x, y, t, vis = -1.0, -1.0, -1.0, False
+
+            with cls._lock:
+                cls._x = x
+                cls._y = y
+                cls._theta = t
+                cls._visible = vis
+
+        elif op == "ping":
+            status = str(data.get("status", "")).lower()
+            if status == "ping":
+                try:
+                    cls._ws_send({"op": "ping", "teamName": cls._team_name, "status": "pong"})
+                except Exception:
+                    cls._drop_ws()
+            elif status == "pong":
+                with cls._lock:
+                    cls._missed_pongs = 0
+
+    @classmethod
+    def _flush_print_queue(cls):
+        to_send = None
+        with cls._lock:
+            if cls._ws is None or not cls._connected or not cls._print_queue:
+                return
+            n = 3 if len(cls._print_queue) > 3 else len(cls._print_queue)
+            to_send = cls._print_queue[:n]
+            del cls._print_queue[:n]
+
+        for s in to_send:
+            try:
+                cls._ws_send({"op": "print", "teamName": cls._team_name, "message": s})
+            except Exception:
+                cls._drop_ws()
+                return
