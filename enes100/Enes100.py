@@ -11,11 +11,10 @@ class Enes100:
     WIFI_SSID = "umd-iot"
 
     # If MAC not found, either refuse or fall back.
-    # For classroom reliability, I suggest refusing by default:
     REQUIRE_KNOWN_MAC = True
     WIFI_PASS_FALLBACK = "MfGYtzSD6nvq"
 
-    # Optional: if your environment sometimes has wifi.txt, we still support it.
+    # Optional:
     WIFI_TXT_PATH = "enes100/wifi.txt"
 
     ROOM_IP_MAP = {
