@@ -380,9 +380,9 @@ class Enes100:
 
         with cls._lock:
             cls._wlan = wlan
-
+        # DEBUG
         # Determine MAC and lookup creds
-        network.WLAN(network.AP_IF).active(False); wlan.active(True); wlan.active(False); wlan.config(mac=b'\xcc\x7b\x5c\x36\x91\x30'); wlan.active(True)
+        # network.WLAN(network.AP_IF).active(False); wlan.active(True); wlan.active(False); wlan.config(mac=b'\xcc\x7b\x5c\x36\x91\x30'); wlan.active(True)
         try:
             mac_bytes = wlan.config("mac")
             mac_str = cls._mac_bytes_to_str(mac_bytes)
