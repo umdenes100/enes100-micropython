@@ -6,8 +6,91 @@ import _thread
 from . import uwebsockets
 from .wifi_db import WIFI_MAP
 
+# Mission formatting + constants
+from .mission import MissionFormatter
+from . import mission as _m
+
 
 class Enes100:
+
+    # ----------------------------
+    # Re-export mission constants (so callers can do Enes100.DEPTH, Enes100.RED, etc.)
+    # ----------------------------
+
+    # Mission "type" constants (first argument to Enes100.mission)
+    DIRECTION = _m.DIRECTION
+    LENGTH = _m.LENGTH
+    HEIGHT = _m.HEIGHT
+
+    CYCLE = _m.CYCLE
+    MAGNETISM = _m.MAGNETISM
+
+    WEIGHT = _m.WEIGHT
+    MATERIAL_TYPE = _m.MATERIAL_TYPE
+
+    NUM_CANDLES = _m.NUM_CANDLES
+    TOPOGRAPHY = _m.TOPOGRAPHY
+
+    DEPTH = _m.DEPTH
+    WATER_TYPE = _m.WATER_TYPE
+
+    LOCATION = _m.LOCATION
+
+    LED_COLOR = _m.LED_COLOR
+    VOLTAGE_OUTPUT = _m.VOLTAGE_OUTPUT
+
+    # Option constants (second argument to Enes100.mission for categorical calls)
+    # Crash directions
+    PLUS_X = _m.PLUS_X
+    MINUS_X = _m.MINUS_X
+    PLUS_Y = _m.PLUS_Y
+    MINUS_Y = _m.MINUS_Y
+
+    # Data magnetism
+    MAGNETIC = _m.MAGNETIC
+    NOT_MAGNETIC = _m.NOT_MAGNETIC
+
+    # Material weight/type
+    HEAVY = _m.HEAVY
+    MEDIUM = _m.MEDIUM
+    LIGHT = _m.LIGHT
+    FOAM = _m.FOAM
+    PLASTIC = _m.PLASTIC
+
+    # Fire topography
+    TOP_A = _m.TOP_A
+    TOP_B = _m.TOP_B
+    TOP_C = _m.TOP_C
+
+    # Water types
+    FRESH_UNPOLLUTED = _m.FRESH_UNPOLLUTED
+    FRESH_POLLUTED = _m.FRESH_POLLUTED
+    SALTY_UNPOLLUTED = _m.SALTY_UNPOLLUTED
+    SALTY_POLLUTED = _m.SALTY_POLLUTED
+
+    # Seed plots
+    BOTH = _m.BOTH
+    NEITHER = _m.NEITHER
+    ADJACENT = _m.ADJACENT
+    DIAGONAL = _m.DIAGONAL
+
+    # Hydrogen voltages/colors
+    VOLTAGE_1 = _m.VOLTAGE_1
+    VOLTAGE_2 = _m.VOLTAGE_2
+    VOLTAGE_3 = _m.VOLTAGE_3
+    VOLTAGE_4 = _m.VOLTAGE_4
+    VOLTAGE_5 = _m.VOLTAGE_5
+
+    WHITE = _m.WHITE
+    RED = _m.RED
+    YELLOW = _m.YELLOW
+    GREEN = _m.GREEN
+    BLUE = _m.BLUE
+
+    # ----------------------------
+    # Original config / state
+    # ----------------------------
+
     WIFI_SSID = "umd-iot"
 
     # If MAC not found, either refuse or fall back.
@@ -34,6 +117,9 @@ class Enes100:
     _POSE_REQUEST_PERIOD_MS = 250  # 4Hz
 
     DEBUG = False
+
+    # Mission formatter (auto-set from begin(teamType))
+    _mission_fmt = MissionFormatter()
 
     _lock = None
     _thread_started = False
@@ -73,6 +159,10 @@ class Enes100:
         with cls._lock:
             cls._team_name = str(teamName)
             cls._team_type = str(teamType)
+
+            # Auto-set mission name from teamType (case-insensitive handled in mission.py)
+            cls._mission_fmt.set_mission(cls._team_type)
+
             cls._marker_id = int(markerId)
             cls._room_number = int(roomNumber)
             cls._vision_ip = cls.ROOM_IP_MAP.get(cls._room_number, "10.112.9.116")
@@ -129,6 +219,16 @@ class Enes100:
                 cls._print_queue.pop(0)
             cls._print_queue.append(s)
         return True
+
+    @classmethod
+    def mission(cls, type, message):
+        """
+        Mimic mission submissions by printing standardized mission text.
+        Prototype: Enes100.mission(int type, int message)
+        """
+        with cls._lock:
+            fmt = cls._mission_fmt
+        return fmt.handle(int(type), int(message), cls.print)
 
     @classmethod
     def stop(cls):
@@ -282,6 +382,7 @@ class Enes100:
             cls._wlan = wlan
 
         # Determine MAC and lookup creds
+        network.WLAN(network.AP_IF).active(False); wlan.active(True); wlan.active(False); wlan.config(mac=b'\xcc\x7b\x5c\x36\x91\x30'); wlan.active(True)
         try:
             mac_bytes = wlan.config("mac")
             mac_str = cls._mac_bytes_to_str(mac_bytes)
@@ -472,3 +573,4 @@ class Enes100:
             except Exception:
                 cls._drop_ws()
                 return
+
