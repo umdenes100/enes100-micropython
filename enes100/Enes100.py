@@ -2,6 +2,7 @@ import network
 import time
 import json
 import _thread
+from machine import UART
 
 from . import uwebsockets
 from .wifi_db import WIFI_MAP
@@ -10,6 +11,18 @@ from .wifi_db import WIFI_MAP
 from .mission import MissionFormatter
 from . import mission as _m
 
+# -----------------------------------
+#  OP codes for ML cam UART comms
+# -----------------------------------
+OP_BEGIN = 0x01
+OP_PRINT = 0x02
+OP_CHECK = 0x03
+OP_MISSION = 0x04
+OP_ML_PREDICTION = 0x05
+OP_ML_CAPTURE = 0x06
+OP_IS_CONNECTED = 0x07
+
+FLUSH_SEQUENCE = b'\xFF\xFE\xFD\xFC'
 
 class Enes100:
 
@@ -103,6 +116,7 @@ class Enes100:
     ROOM_IP_MAP = {
         1201: "10.112.9.116",
         1116: "10.112.9.114",
+        1120: "10.112.9.115",
     }
 
     WS_PORT = 7755
@@ -116,6 +130,8 @@ class Enes100:
 
     _POSE_REQUEST_PERIOD_MS = 250  # 4Hz
 
+    _ML_TIMEOUT_MS = 500
+
     DEBUG = False
 
     # Mission formatter (auto-set from begin(teamType))
@@ -128,6 +144,7 @@ class Enes100:
     _wlan = None
     _ws = None
     _connected = False
+    _uart = None
 
     _team_name = ""
     _team_type = ""
@@ -152,7 +169,7 @@ class Enes100:
     # -------- Public API --------
 
     @classmethod
-    def begin(cls, teamName, teamType, markerId, roomNumber):
+    def begin(cls, teamName, teamType, markerId, roomNumber, tx=None, rx=None):
         if cls._lock is None:
             cls._lock = _thread.allocate_lock()
 
@@ -168,22 +185,49 @@ class Enes100:
             cls._vision_ip = cls.ROOM_IP_MAP.get(cls._room_number, "10.112.9.116")
             cls._stop_flag = False
 
-        cls._wifi_connect()
+        # ml cam setup (optional)
+        if tx is not None and rx is not None:
+            print("ml cam recognized")
+            cls._uart = UART(1, baudrate=57600, tx=tx, rx=rx)
 
-        if not cls._thread_started:
-            cls._thread_started = True
-            _thread.start_new_thread(cls._worker_thread, ())
+            while cls._state() not in [0x00, 0x01]:
+                time.sleep_ms(50)
+            
+            # send begin command through uart
+            mission_byte = cls._mission_type_byte(cls._team_type)
+            cls._uart.write(bytes([OP_BEGIN, mission_byte]))
+            cls._uart.write(int(cls._marker_id).to_bytes(2, 'big'))
+            cls._uart.write(int(cls._room_number).to_bytes(2, 'big'))
+            cls._uart.write(cls._team_name.encode('utf-8'))
+            cls._uart.write(b'\x00')
+            cls._uart.write(FLUSH_SEQUENCE)
+            print("BEGIN:", mission_byte, markerId, roomNumber, cls._team_name)
+            
+            # confirm connection
+            while cls._state() != 0x01:
+                time.sleep_ms(50)
 
-        t0 = time.ticks_ms()
-        while time.ticks_diff(time.ticks_ms(), t0) < 5000:
-            if cls.isConnected():
-                return True
-            time.sleep_ms(50)
+            return cls._state() == 0x01
+        else:
+            # default: acebott native wifi + ws
+            cls._wifi_connect()
 
-        return cls.isConnected()
+            if not cls._thread_started:
+                cls._thread_started = True
+                _thread.start_new_thread(cls._worker_thread, ())
+
+            t0 = time.ticks_ms()
+            while time.ticks_diff(time.ticks_ms(), t0) < 5000:
+                if cls.isConnected():
+                    return True
+                time.sleep_ms(50)
+
+            return cls.isConnected()
 
     @classmethod
     def isConnected(cls):
+        if cls._uart is not None:
+            return cls._state() == 0x01
         with cls._lock:
             try:
                 wlan_ok = (cls._wlan is not None and cls._wlan.isconnected())
@@ -193,27 +237,54 @@ class Enes100:
 
     @classmethod
     def getX(cls):
+        if cls._uart is not None:
+            cls._uart_pos_update()
+            with cls._lock:
+                return cls._x
         with cls._lock:
             return cls._x
 
     @classmethod
     def getY(cls):
+        if cls._uart is not None:
+            cls._uart_pos_update()
+            with cls._lock:
+                return cls._y
         with cls._lock:
             return cls._y
 
     @classmethod
     def getTheta(cls):
+        if cls._uart is not None:
+            cls._uart_pos_update()
+            with cls._lock:
+                return cls._theta
         with cls._lock:
             return cls._theta
 
     @classmethod
     def isVisible(cls):
+        if cls._uart is not None:
+            cls._uart_pos_update()
+            with cls._lock:
+                return cls._visible
         with cls._lock:
             return bool(cls._visible)
 
     @classmethod
     def print(cls, msg):
         s = str(msg)
+        if cls._uart is not None:
+            # send print command through uart
+            msg = (
+                bytes([OP_PRINT])
+                + str(msg).encode('utf-8')
+                + b'\n\x00'
+                + FLUSH_SEQUENCE
+            )
+            cls._uart.write(msg)
+            time.sleep_ms(10)
+            return True
         with cls._lock:
             if len(cls._print_queue) >= cls._PRINT_QUEUE_MAX:
                 cls._print_queue.pop(0)
@@ -226,9 +297,51 @@ class Enes100:
         Mimic mission submissions by printing standardized mission text.
         Prototype: Enes100.mission(int type, int message)
         """
+        if cls._uart is not None:
+            # send mission command through uart
+            msg = (
+                bytes([OP_MISSION])
+                + bytes([int(type)])
+                + bytes([int(message)])
+                + b'\x00'
+                + FLUSH_SEQUENCE
+            )
+            cls._uart.write(msg)
+            time.sleep_ms(10)
+            return True
         with cls._lock:
             fmt = cls._mission_fmt
         return fmt.handle(int(type), int(message), cls.print)
+    
+    @classmethod
+    def MLGetPrediction(cls, model_index):
+        if cls._uart is None:
+            raise RuntimeError("ML Cam not initialized with UART pins")
+        
+        # Clear ALL pending bytes BEFORE sending request
+        while cls._uart.any():
+            cls._uart.read(1)
+
+        cls._uart.write(bytes([OP_ML_PREDICTION, model_index]) + FLUSH_SEQUENCE)
+
+        # Wait for 2 bytes
+        start = time.ticks_ms()
+        while cls._uart.any() < 2:
+            if time.ticks_diff(time.ticks_ms(), start) > cls._ML_TIMEOUT_MS:
+                return -1
+            time.sleep_ms(10)
+
+        raw = cls._uart.read(2)
+        if raw is None or len(raw) < 2:
+            return -1
+
+        # Reconstruct signed 16-bit int
+        result = raw[0] | (raw[1] << 8)
+        if result >= 0x8000:
+            result -= 0x10000
+
+        return result
+
 
     @classmethod
     def stop(cls):
@@ -573,4 +686,104 @@ class Enes100:
             except Exception:
                 cls._drop_ws()
                 return
+            
+    @classmethod
+    def _mission_type_byte(cls, team_type):
+        mapping = {
+            "CRASH": 0,
+            "DATA": 1,
+            "MATERIAL": 2,
+            "FIRE": 3,
+            "WATER": 4,
+            "SEED": 5,
+            "HYDROGEN": 6,
+        }
+        return mapping.get(_m._norm_mission_name(team_type), 0)
+    
+    @classmethod
+    def _state(cls):
+        if cls._uart is None:
+            return 0xFF
+        while cls._uart.any():
+            cls._uart.read(1)
+        cls._uart.write(bytes([OP_IS_CONNECTED]))
+        start = time.ticks_ms()
+        while time.ticks_diff(time.ticks_ms(), start) < 100 and cls._uart.any() == 0:
+            pass
+        result = cls._uart.read(1)
+        if result is None or len(result) == 0:
+            return 0xFF
+        return result[0]
+        
+
+    @classmethod
+    def _uart_pos_update(cls):
+        if cls._uart is None:
+                return
+
+        # Flush old data
+        while cls._uart.any():
+            cls._uart.read(1)
+
+        cls._uart.write(bytes([OP_CHECK]))
+
+        # Wait for a response byte
+        start = time.ticks_ms()
+        while not cls._uart.any():
+            if time.ticks_diff(time.ticks_ms(), start) > 10:
+                return
+
+        b = cls._uart.read(1)
+        if not b:
+            return
+        b = b[0]
+
+        # Interpret response byte
+        if b == 0x00:
+            return  # no update
+        if b == 0x01:
+            # marker not visible
+            cls._x = -1
+            cls._y = -1
+            cls._theta = -1
+            cls._visible = False
+            return
+        if b != 0x02:
+            return  # invalid value
+
+        # marker visible
+        cls._visible = True
+
+        data = cls._read_bytes(1)
+        if data is None:
+            return
+        y_raw = data[0]
+        cls._y = y_raw / 100.0
+
+        # X (2 bytes, unsigned)
+        data = cls._read_bytes(2)
+        if data is None:
+            return
+        x_raw = (data[1] << 8) | data[0]
+        cls._x = x_raw / 100.0
+
+        # Theta (2 bytes, signed)
+        data = cls._read_bytes(2)
+        if data is None:
+            return
+        theta_raw = int.from_bytes(data, 'little', True)
+        cls._theta = theta_raw / 100.0
+
+
+    def _read_bytes(cls, num_bytes, timeout_ms=100):
+        data = b''
+        start = time.ticks_ms()
+        while len(data) < num_bytes:
+            if cls._uart.any():
+                data += cls._uart.read(1)
+            if time.ticks_diff(time.ticks_ms(), start) > timeout_ms:
+                return None  # timed out
+        return data
+
+
 
