@@ -177,7 +177,7 @@ class MissionFormatter:
 
     def _data(self, mtype, msg):
         if mtype == CYCLE:
-            return _wrap("The duty cycle is {}%.".format(int(msg)))
+            return _wrap("The duty cycle is {}0%.".format(int(msg)))
 
         if mtype == MAGNETISM:
             magmap = {

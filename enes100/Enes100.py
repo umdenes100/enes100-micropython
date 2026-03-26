@@ -187,8 +187,12 @@ class Enes100:
 
         # ml cam setup (optional)
         if tx is not None and rx is not None:
-            print("ml cam recognized")
-            cls._uart = UART(1, baudrate=57600, tx=tx, rx=rx)
+            print("[BEGIN] ML Camera begin.")
+            cls._uart = UART(1, baudrate=19200, tx=tx, rx=rx)
+            
+            if cls._uart == None:
+                cls.begin(teamName, teamType, markerId, roomNumber)
+                print("[BEGIN] ML camera did not initiate. Check Tx and Rx.")
 
             while cls._state() not in [0x00, 0x01]:
                 time.sleep_ms(50)
@@ -201,7 +205,6 @@ class Enes100:
             cls._uart.write(cls._team_name.encode('utf-8'))
             cls._uart.write(b'\x00')
             cls._uart.write(FLUSH_SEQUENCE)
-            print("BEGIN:", mission_byte, markerId, roomNumber, cls._team_name)
             
             # confirm connection
             while cls._state() != 0x01:
@@ -210,6 +213,7 @@ class Enes100:
             return cls._state() == 0x01
         else:
             # default: acebott native wifi + ws
+            print("[BEGIN] Acebott begin.")
             cls._wifi_connect()
 
             if not cls._thread_started:
@@ -273,7 +277,7 @@ class Enes100:
 
     @classmethod
     def print(cls, msg):
-        s = str(msg)
+        s = str(msg) + '\n'
         if cls._uart is not None:
             # send print command through uart
             msg = (
@@ -297,20 +301,9 @@ class Enes100:
         Mimic mission submissions by printing standardized mission text.
         Prototype: Enes100.mission(int type, int message)
         """
-        if cls._uart is not None:
-            # send mission command through uart
-            msg = (
-                bytes([OP_MISSION])
-                + bytes([int(type)])
-                + bytes([int(message)])
-                + b'\x00'
-                + FLUSH_SEQUENCE
-            )
-            cls._uart.write(msg)
-            time.sleep_ms(10)
-            return True
         with cls._lock:
             fmt = cls._mission_fmt
+            
         return fmt.handle(int(type), int(message), cls.print)
     
     @classmethod
@@ -371,7 +364,7 @@ class Enes100:
                     cls._wifi_connect()
                 except Exception as e:
                     if cls.DEBUG:
-                        print("[enes100] wifi_connect failed:", repr(e))
+                        print("[ENES100] wifi_connect failed:", repr(e))
                     cls._drop_ws()
                     time.sleep_ms(cls._RECONNECT_DELAY_MS)
                     continue
@@ -383,7 +376,7 @@ class Enes100:
                     last_pose_req_ms = time.ticks_ms()
                 except Exception as e:
                     if cls.DEBUG:
-                        print("[enes100] ws_connect failed:", repr(e))
+                        print("[ENES100] ws_connect failed:", repr(e))
                     cls._drop_ws()
                     time.sleep_ms(cls._RECONNECT_DELAY_MS)
                     continue
@@ -400,7 +393,7 @@ class Enes100:
                         cls._missed_pongs += 1
                         if cls._missed_pongs >= cls._PING_MISS_LIMIT:
                             if cls.DEBUG:
-                                print("[enes100] missed pongs -> disconnect")
+                                print("[ENES100] missed pongs -> disconnect")
                             cls._drop_ws()
                             continue
                 except Exception:
