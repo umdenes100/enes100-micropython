@@ -4,9 +4,9 @@ from enes100 import Enes100
 # Team Name, Mission Type, Aruco ID, Room Num
 Enes100.begin('We are Farmers', 'SEED', 210, 1116)
 
-# enes100.getX() -> your x coordinate. 0-4, in meters, -1 if aruco is not visible
-# enes100.getY() -> your y coordinate. 0-2, in meters, -1 if aruco is not visible
-# enes100.getTheta() -> your theta. -pi to pi, in radians, -1 if aruco is not visible
+# Enes100.getX() -> your x coordinate. 0-4, in meters, -1 if aruco is not visible
+# Enes100.getY() -> your y coordinate. 0-2, in meters, -1 if aruco is not visible
+# Enes100.getTheta() -> your theta. -pi to pi, in radians, -1 if aruco is not visible
 
 # will print OTV coordinates if aruco id in begin statement is visible on arena
 if Enes100.isVisible():
