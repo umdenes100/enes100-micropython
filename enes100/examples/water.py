@@ -14,5 +14,5 @@ if Enes100.isVisible():
 else:
     Enes100.print('Not visible.')
 
-Enes100.mission('DEPTH', 30) # Transmit the depth of the water in the pool
-Enes100.mission('WATER_TYPE', 'FRESH_UNPOLLUTED') # transmit the state of the pool
+Enes100.mission(DEPTH, 30) # Transmit the depth of the water in the pool
+Enes100.mission(WATER_TYPE, FRESH_UNPOLLUTED) # transmit the state of the pool
